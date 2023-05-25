@@ -6,7 +6,7 @@ class Solution:
         self.roman = s
         self.answer = 0
 
-    def switchCase(self, roman):
+    def switchcase_roman(self, roman):
         match roman:
             case "I":
                 self.answer += 1
@@ -42,13 +42,13 @@ class Solution:
             was = False
             if i + 1 < length:
                 if f"{self.roman[i]}{self.roman[i + 1]}" in ["IV", "IX", "XL", "XC", "CD", "CM"]:
-                    self.switchCase(f"{self.roman[i]}{self.roman[i + 1]}")
+                    self.switchcase_roman(f"{self.roman[i]}{self.roman[i + 1]}")
                     was = True
                     i += 1
                 else:
-                    self.switchCase(self.roman[i])
+                    self.switchcase_roman(self.roman[i])
             elif i + 1 == length and not was:
-                self.switchCase(self.roman[i])
+                self.switchcase_roman(self.roman[i])
             i += 1
         return self.answer
 
